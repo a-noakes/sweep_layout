@@ -1,0 +1,92 @@
+// SPDX-License-Identifier: MIT
+// Windows/Linux Swedish input source. Keycodes describe physical US positions.
+// Swedish symbols: https://github.com/qmk/qmk_firmware/blob/master/quantum/keymap_extras/keymap_swedish.h
+
+#include <dt-bindings/zmk/modifiers.h>
+
+// Preserve the US layout's shifted output too. Mod-morph masks physical/sticky
+// Shift before the second binding; any required Shift is supplied by that binding.
+#define SV_KEY(name, plain, shifted) \
+    name: name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+        bindings = <plain>, <shifted>; \
+        mods = <(MOD_LSFT | MOD_RSFT)>; \
+    };
+
+/ {
+    behaviors {
+        SV_KEY(sv_quote, &kp NUHS, &kp LS(N2))
+        SV_KEY(sv_comma, &kp COMMA, &kp NUBS)
+        SV_KEY(sv_dot, &kp DOT, &kp LS(NUBS))
+        SV_KEY(sv_slash, &kp LS(N7), &kp LS(MINUS))
+        // The original tab shortcuts send GUI + { / }. Mask an extra Shift,
+        // since Swedish AltGr+Shift+7/0 produces different characters.
+        SV_KEY(sv_prev_tab, &kp LG(RA(N7)), &kp LG(RA(N7)))
+        SV_KEY(sv_next_tab, &kp LG(RA(N0)), &kp LG(RA(N0)))
+
+        SV_KEY(sv_n0, &kp N0, &kp LS(N9))
+        SV_KEY(sv_n1, &kp N1, &kp LS(N1))
+        SV_KEY(sv_n2, &kp N2, &kp RA(N2))
+        SV_KEY(sv_n3, &kp N3, &kp LS(N3))
+        SV_KEY(sv_n4, &kp N4, &kp RA(N4))
+        SV_KEY(sv_n5, &kp N5, &kp LS(N5))
+        SV_KEY(sv_n6, &kp N6, &sv_caret_tap)
+        SV_KEY(sv_n7, &kp N7, &kp LS(N6))
+        SV_KEY(sv_n8, &kp N8, &kp LS(NUHS))
+        SV_KEY(sv_n9, &kp N9, &kp LS(N8))
+
+        SV_KEY(sv_excl, &kp LS(N1), &kp LS(N1))
+        SV_KEY(sv_at, &kp RA(N2), &kp RA(N2))
+        SV_KEY(sv_hash, &kp LS(N3), &kp LS(N3))
+        SV_KEY(sv_colon, &kp LS(DOT), &kp LS(DOT))
+        SV_KEY(sv_semi, &kp LS(COMMA), &kp LS(DOT))
+        SV_KEY(sv_equal, &kp LS(N0), &kp MINUS)
+        SV_KEY(sv_plus, &kp MINUS, &kp MINUS)
+        SV_KEY(sv_bslash, &kp RA(MINUS), &kp RA(NUBS))
+        SV_KEY(sv_pipe, &kp RA(NUBS), &kp RA(NUBS))
+        SV_KEY(sv_lbrace, &kp RA(N7), &kp RA(N7))
+        SV_KEY(sv_rbrace, &kp RA(N0), &kp RA(N0))
+        SV_KEY(sv_lparen, &kp LS(N8), &kp LS(N8))
+        SV_KEY(sv_rparen, &kp LS(N9), &kp LS(N9))
+        SV_KEY(sv_lbracket, &kp RA(N8), &kp RA(N7))
+        SV_KEY(sv_rbracket, &kp RA(N9), &kp RA(N0))
+        SV_KEY(sv_star, &kp LS(NUHS), &kp LS(NUHS))
+        SV_KEY(sv_minus, &kp FSLH, &kp LS(FSLH))
+        SV_KEY(sv_under, &kp LS(FSLH), &kp LS(FSLH))
+        SV_KEY(sv_amps, &kp LS(N6), &kp LS(N6))
+        SV_KEY(sv_dollar, &kp RA(N4), &kp RA(N4))
+        SV_KEY(sv_percent, &kp LS(N5), &kp LS(N5))
+        SV_KEY(sv_grave, &sv_grave_tap, &sv_tilde_tap)
+        SV_KEY(sv_tilde, &sv_tilde_tap, &sv_tilde_tap)
+        SV_KEY(sv_caret, &sv_caret_tap, &sv_caret_tap)
+    };
+
+    // Swedish treats these as dead keys. Space commits the literal character
+    // without leaving an accent pending for the next letter.
+    macros {
+        sv_grave_tap: sv_grave_tap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <30>;
+            wait-ms = <10>;
+            bindings = <&macro_tap &kp LS(EQUAL) &kp SPACE>;
+        };
+        sv_tilde_tap: sv_tilde_tap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <30>;
+            wait-ms = <10>;
+            bindings = <&macro_tap &kp RA(RBKT) &kp SPACE>;
+        };
+        sv_caret_tap: sv_caret_tap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <30>;
+            wait-ms = <10>;
+            bindings = <&macro_tap &kp LS(RBKT) &kp SPACE>;
+        };
+    };
+};
+
+#undef SV_KEY
