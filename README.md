@@ -34,10 +34,10 @@ Swedish-specific changes:
 - On Base, press **T + P** for `å`, **G + '** for `ä`, and **L + F** for `ö`.
   Press the two keys within 40 ms. Add Shift for uppercase `Å`, `Ä`, `Ö`.
 - The left inner thumb is **Space**; the right inner thumb is **sticky Shift**.
-- Both left thumbs together toggle **Gaming** on/off from Base or Gaming
-  (50 ms combo window). E, S, and F keep their original positions. The remaining
-  left-hand positions are F1–F12, in row order. The right hand and thumbs inherit
-  Base. Toggle Gaming off before using the left-side Func or Symbols mappings.
+- Tap and release both left thumbs together for **Gaming** on the next key
+  (50 ms combo window), then return to Base. Hold the combo to keep Gaming active
+  while held. E, S, and F keep their original positions. The remaining left-hand
+  positions are F1–F12, in row order. The right hand and thumbs inherit Base.
 - On Symbols, both left thumbs still **hold Settings** (200 ms combo window).
   This has a separate layer scope from the Gaming combo.
 - Func's left rows are `Esc å ä ö 1`, `Shift Ctrl Alt Win 2`, and

@@ -26,12 +26,13 @@
             layers = <BASE>;
             bindings = <&kp SEMI>;
         };
+        // Tap/release for one Gaming key; hold to keep Gaming active.
         // On SYM, this chord still holds Settings instead (inherited combo).
         combo_game {
             timeout-ms = <50>;
             key-positions = <30 31>;
             layers = <BASE GAME>;
-            bindings = <&tog GAME>;
+            bindings = <&sl GAME>;
         };
     };
 

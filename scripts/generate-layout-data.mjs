@@ -38,7 +38,7 @@ const metadata = [
     ['Func', 'Navigation, modifiers, Swedish letters, and extra symbols.', 'Tap the outer left thumb · sticky layer'],
     ['Media', 'Audio, brightness, and the original extra symbols.', 'Both outer thumbs together · sticky layer'],
     ['Settings', 'Bluetooth profiles and bootloader access.', 'On Symbols, hold both left thumbs together'],
-    ['Gaming', 'E / S / F stay in place. The other left keys become F1–F12.', 'Both left thumbs together · toggle on / off'],
+    ['Gaming', 'E / S / F stay in place. The other left keys become F1–F12.', 'Tap both left thumbs together · next key, then Base'],
 ];
 
 function parseBindings(value) {
