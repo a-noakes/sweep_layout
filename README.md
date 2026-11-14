@@ -54,7 +54,7 @@ and are not intended for macOS Swedish.
 For a local ZMK build, select the variant with an absolute path:
 
 ```sh
-west build -s zmk/app -d build/swedish-left -b nice_nano_v2 -- \
+west build -s zmk/app -d build/swedish-left -b nice_nano@2.0.0//zmk -- \
   -DSHIELD=cradio_left -DZMK_CONFIG=/absolute/path/to/sweep_layout/config \
   -DKEYMAP_FILE=/absolute/path/to/sweep_layout/config/cradio_swedish.keymap
 ```

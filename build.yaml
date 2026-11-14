@@ -13,17 +13,20 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: cradio_left
-  - board: nice_nano_v2
+    artifact-name: cradio_left-nice_nano_v2-zmk
+  - board: nice_nano@2.0.0//zmk
     shield: cradio_right
-  - board: nice_nano_v2
+    artifact-name: cradio_right-nice_nano_v2-zmk
+  - board: nice_nano@2.0.0//zmk
     shield: cradio_left
     cmake-args: -DKEYMAP_FILE=${GITHUB_WORKSPACE}/config/cradio_swedish.keymap
     artifact-name: cradio_left-swedish-nice_nano_v2-zmk
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: cradio_right
     cmake-args: -DKEYMAP_FILE=${GITHUB_WORKSPACE}/config/cradio_swedish.keymap
     artifact-name: cradio_right-swedish-nice_nano_v2-zmk
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: settings_reset
+    artifact-name: settings_reset-nice_nano_v2-zmk
